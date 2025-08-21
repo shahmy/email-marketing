@@ -1,0 +1,27 @@
+<?php
+
+namespace DummyNamespace;
+
+// You might add contracts or interfaces here depending on your filter strategy
+// use Illuminate\Database\Eloquent\Builder;
+
+class DummyClass
+{
+    /**
+     * Apply the filter to the query.
+     * Example for Eloquent query:
+     * public function apply(Builder $query, $value)
+     * {
+     * return $query->where('column', $value);
+     * }
+     *
+     * @param  mixed  $target (e.g., an Eloquent Builder instance)
+     * @param  mixed  $value
+     * @return mixed
+     */
+    public function apply($target, $value)
+    {
+        // Implement your filtering logic here
+        return $target;
+    }
+}

@@ -1,0 +1,34 @@
+<?php
+
+namespace DummyNamespace;
+
+use Exception; // Or use Illuminate\Http\Exceptions\HttpResponseException for HTTP responses
+use Throwable; // For PHP 7+ for more generic error handling
+
+class DummyClass extends Exception
+{
+    /**
+     * Report the exception.
+     *
+     * @return void
+     */
+    public function report()
+    {
+        // Log or send the exception to an external service
+    }
+
+    /**
+     * Render the exception into an HTTP response.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function render($request)
+    {
+        // Return a custom JSON response or redirect
+        return response()->json([
+            'message' => $this->getMessage(),
+            'error_code' => $this->code // You can set a custom error code
+        ], 400); // Or other appropriate HTTP status code
+    }
+}

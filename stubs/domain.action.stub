@@ -1,0 +1,28 @@
+<?php
+
+namespace DummyNamespace;
+
+class DummyClass
+{
+    /**
+     * Create a new class instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        //
+    }
+
+    /**
+     * Execute the action.
+     *
+     * @param  mixed  $data
+     * @return mixed
+     */
+    public function execute($data)
+    {
+        // Implement your action logic here
+        return $data;
+    }
+}

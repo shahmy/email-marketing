@@ -1,0 +1,57 @@
+<?php
+
+namespace DummyNamespace;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Domain\Shared\Models\BaseModel;
+
+class DummyClass extends BaseModel
+{
+    use HasFactory;
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array<int, string>
+     */
+    protected $fillable = [
+        // Add your fillable attributes here
+    ];
+
+    /**
+     * The table associated with the model.
+     *
+     * @var string
+     */
+    // protected $table = 'your_table_name';
+
+    /**
+     * The primary key for the model.
+     *
+     * @var string
+     */
+    // protected $primaryKey = 'id';
+
+    /**
+     * Indicates if the IDs are auto-incrementing.
+     *
+     * @var bool
+     */
+    // public $incrementing = true;
+
+    /**
+     * The "type" of the primary key.
+     *
+     * @var string
+     */
+    // protected $keyType = 'int';
+
+    /**
+     * Indicates if the model should be timestamped.
+     *
+     * @var bool
+     */
+    // public $timestamps = true;
+
+    // Define relationships, accessors, mutators, and other model logic here
+}

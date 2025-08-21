@@ -1,0 +1,50 @@
+namespace DummyNamespace;
+
+// You might import the model or other classes needed for building
+// use App\Domain\User\Models\User;
+
+class DummyClass
+{
+    /**
+     * The item being built or the initial query.
+     *
+     * @var mixed
+     */
+    protected $item;
+
+    /**
+     * Create a new builder instance.
+     *
+     * @param  mixed  $initialItem
+     * @return void
+     */
+    public function __construct($initialItem = null)
+    {
+        $this->item = $initialItem;
+    }
+
+    /**
+     * Set a property on the item.
+     *
+     * @param  string  $key
+     * @param  mixed  $value
+     * @return $this
+     */
+    public function withProperty($key, $value)
+    {
+        if (is_array($this->item) || is_object($this->item)) {
+            $this->item[$key] = $value; // Or $this->item->$key = $value; for objects
+        }
+        return $this;
+    }
+
+    /**
+     * Build and return the final item.
+     *
+     * @return mixed
+     */
+    public function build()
+    {
+        return $this->item;
+    }
+}

@@ -1,14 +1,16 @@
 <?php
 
-namespace Domain\Shared\Models;
+namespace Src\Domain\Shared\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Factories\Factory;
 
 class BaseModel extends Model
 {
     use HasFactory;
 
-    protected $garded = [];
+    protected $guarded = [];
 
     protected static function newFactory(): Factory
     {

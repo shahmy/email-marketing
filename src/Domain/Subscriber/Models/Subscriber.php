@@ -5,6 +5,9 @@ namespace Src\Domain\Subscriber\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Src\Domain\Shared\Models\BaseModel;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+
+use Src\Domain\Shared\Models\User;
 
 class Subscriber extends BaseModel
 {
@@ -27,7 +30,12 @@ class Subscriber extends BaseModel
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
-    }   
+    }
+
+    public function tags(): BelongsToMany
+    {
+        return $this->belongsToMany(Tag::class);    
+    }
 
 
 }

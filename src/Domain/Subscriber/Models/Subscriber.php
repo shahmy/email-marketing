@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 use Src\Domain\Shared\Models\User;
+use Src\Domain\Subscriber\Models\Form;
+use Src\Domain\Subscriber\Tag;
 
 class Subscriber extends BaseModel
 {
@@ -34,7 +36,7 @@ class Subscriber extends BaseModel
 
     public function tags(): BelongsToMany
     {
-        return $this->belongsToMany(Tag::class);    
+        return $this->belongsToMany(related: Tag::class);    
     }
 
 

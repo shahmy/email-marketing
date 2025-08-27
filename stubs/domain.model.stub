@@ -3,7 +3,7 @@
 namespace DummyNamespace;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Domain\Shared\Models\BaseModel;
+use Src\Domain\Shared\Models\BaseModel;
 
 class DummyClass extends BaseModel
 {

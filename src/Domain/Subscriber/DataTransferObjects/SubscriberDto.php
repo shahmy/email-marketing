@@ -7,6 +7,7 @@ use Spatie\LaravelData\Support\Validation\ValidationContext;
 use Spatie\LaravelData\Data; 
 use Spatie\LaravelData\DataCollection;
 use Src\Domain\Shared\Models\User;
+use Illuminate\Http\Request;
 
 class SubscriberDto extends Data // extends Data (if using Spatie package)
 {
@@ -27,7 +28,7 @@ class SubscriberDto extends Data // extends Data (if using Spatie package)
         public readonly string $first_name,
         public readonly ?string $last_name,
         public readonly ?DataCollection $tags,
-        public readonly ?FormData $form,
+        public readonly ?FormDto $form,
         public readonly ?User $user,
     ) {}
 
@@ -66,5 +67,17 @@ class SubscriberDto extends Data // extends Data (if using Spatie package)
         'form_id'=> ['nullable', 'integer', 'exists:forms,id'],
         'user_id'=> ['nullable', 'integer', 'exists:users,id'],
         ];
+    }
+
+    public static function fromRequest(Request $request): self
+    {
+        return self::from([
+            ...$request->all(),
+            'tags' => TagDto::collection(
+                Tag::whereIn('id', $request->input('tag_ids', []))->get()
+            ),
+            'form' => FormDto::from(Form::find($request->input('form_id'))),
+        ]);
+
     }
 }
